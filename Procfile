@@ -1,1 +1,1 @@
-web: gunicorn plaindjango.wsgi:app
+web: python app.py
