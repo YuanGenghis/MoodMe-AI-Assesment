@@ -3,8 +3,8 @@
 Click on Code and choose download zip file. Unzip file to any folder you want.
 
 ## Run
-If MacOS, open Terminal at that folder, If Windows, open PowerShell at that folder.
-Then type in terminal or powershell
+If MacOS, open Terminal at that folder, If Windows, open PowerShell at that folder.\
+Then type
 ```bash
 python app.py
 ```
