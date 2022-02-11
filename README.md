@@ -1,4 +1,13 @@
 # MoodMe-AI-Assesment
-Download and Run "Python app.py" in terminal
-Then app will host at local, just type http://127.0.0.1:4000/upload in order to open website
-Submit any picture to Portrait to see what happened
+## Installation
+Click on Code and choose download zip file. Unzip file to any folder you want.
+
+## Run
+If MacOS, open Terminal at that folder, If Windows, open PowerShell at that folder.
+Then type in terminal or powershell
+```bash
+python app.py
+```
+if success you will see text in terminal says "to upload files navigate to http://127.0.0.1:4000/upload etc"
+Then app will host at local, type http://127.0.0.1:4000/upload in web browser
+Submit any picture of Portrait to see what happened (best jpg file)
