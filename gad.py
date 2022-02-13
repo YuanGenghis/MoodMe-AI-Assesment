@@ -57,25 +57,25 @@ while cv2.waitKey(1)<0:
     if not faceBoxes:
         print("No face detected")
 
-    for faceBox in faceBoxes:
-        face=frame[max(0,faceBox[1]-padding):
-                   min(faceBox[3]+padding,frame.shape[0]-1),max(0,faceBox[0]-padding)
-                   :min(faceBox[2]+padding, frame.shape[1]-1)]
+    faceBox = faceBoxes[0]
+    face=frame[max(0,faceBox[1]-padding):
+                min(faceBox[3]+padding,frame.shape[0]-1),max(0,faceBox[0]-padding)
+                :min(faceBox[2]+padding, frame.shape[1]-1)]
 
-        blob=cv2.dnn.blobFromImage(face, 1.0, (227,227), MODEL_MEAN_VALUES, swapRB=False)
-        genderNet.setInput(blob)
-        genderPreds=genderNet.forward()
-        gender=genderList[genderPreds[0].argmax()]
-        print(f'Gender: {gender}')
+    blob=cv2.dnn.blobFromImage(face, 1.0, (227,227), MODEL_MEAN_VALUES, swapRB=False)
+    genderNet.setInput(blob)
+    genderPreds=genderNet.forward()
+    gender=genderList[genderPreds[0].argmax()]
+    print(f'Gender: {gender}')
 
-        ageNet.setInput(blob)
-        agePreds=ageNet.forward()
-        age=ageList[agePreds[0].argmax()]
-        print(f'Age: {age[1:-1]} years')
+    ageNet.setInput(blob)
+    agePreds=ageNet.forward()
+    age=ageList[agePreds[0].argmax()]
+    print(f'Age: {age[1:-1]} years')
 
-        cv2.putText(resultImg, f'{gender}, {age}', (faceBox[0], faceBox[1]-10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,255), 2, cv2.LINE_AA)
-        # cv2.imshow("Detecting age and gender", resultImg)
+    cv2.putText(resultImg, f'{gender}, {age}', (faceBox[0], faceBox[1]-10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,255), 2, cv2.LINE_AA)
+    # cv2.imshow("Detecting age and gender", resultImg)
 
-        img = Image.fromarray(resultImg)
-        img.save(os.path.join( upload_dest, "check.jpg"))
+    img = Image.fromarray(resultImg)
+    img.save(os.path.join( upload_dest, "check.jpg"))
 

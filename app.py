@@ -1,10 +1,12 @@
 from email.mime import base
 from multiprocessing.connection import wait
 import sys,os,re,glob,base64,io
+from time import sleep
 from flask import Flask, flash, request, redirect, render_template
 from werkzeug.utils import secure_filename
 from config import *
 from PIL import Image
+from subprocess import Popen, PIPE
 
 
 app=Flask(__name__, 
@@ -51,8 +53,9 @@ def upload_file():
                 file.save(os.path.join( upload_dest, filename))
     flash('File(s) uploaded')
 
-    os.system('python gad.py --image ' + 'uploads_folder/' + filename)
+    Popen('python gad.py --image ' + 'uploads_folder/' + filename)
 
+    sleep(2)
     img = Image.open(os.path.join(os.getcwd(), 'uploads_folder') + "/" + "check.jpg")
     data = io.BytesIO()
     img.save(data, "JPEG")
