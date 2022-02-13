@@ -1,5 +1,4 @@
 from email.mime import base
-import cv2
 from multiprocessing.connection import wait
 import sys,os,re,glob,base64,io
 from time import sleep
