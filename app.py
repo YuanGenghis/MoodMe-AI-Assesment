@@ -7,6 +7,7 @@ from werkzeug.utils import secure_filename
 from config import *
 from PIL import Image
 from subprocess import Popen, PIPE
+from gad import *
 
 
 app=Flask(__name__, 
