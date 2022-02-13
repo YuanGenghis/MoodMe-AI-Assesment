@@ -6,7 +6,6 @@ from flask import Flask, flash, request, redirect, render_template
 from werkzeug.utils import secure_filename
 from config import *
 from PIL import Image
-from subprocess import Popen, PIPE
 from gad import checkGender
 
 
