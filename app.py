@@ -56,7 +56,6 @@ def upload_file():
     flash('File(s) uploaded')
 
     # Popen('python gad.py --image ' + 'uploads_folder/' + filename)
-
     # sleep(2)
     checkGender('uploads_folder/' + filename)
 
@@ -107,12 +106,8 @@ def checkGender(path):
 
     video=cv2.VideoCapture(path)
     padding=20
-    # while cv2.waitKey(1)<0:
     while True:
         hasFrame,frame=video.read()
-        # if not hasFrame:
-        #     cv2.waitKey()
-        #     break
 
         resultImg,faceBoxes=highlightFace(faceNet,frame)
         if not faceBoxes:
@@ -135,7 +130,6 @@ def checkGender(path):
         print(f'Age: {age[1:-1]} years')
 
         cv2.putText(resultImg, f'{gender}, {age}', (faceBox[0], faceBox[1]-10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,255), 2, cv2.LINE_AA)
-        # cv2.imshow("Detecting age and gender", resultImg)
 
         img = Image.fromarray(resultImg)
         img.save(os.path.join( upload_dest, "check.jpg"))
