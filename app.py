@@ -53,7 +53,7 @@ def upload_file():
 
     os.system('python gad.py --image ' + 'uploads_folder/' + filename)
 
-    img = Image.open(os.path.join(os.getcwd(), 'uploads_folder') + "/" + "check.jpg")
+    img = Image.open(os.path.join(os.getcwd(), 'uploads_folder') + "/" + filename)
     data = io.BytesIO()
     img.save(data, "JPEG")
 
