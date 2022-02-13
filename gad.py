@@ -74,8 +74,8 @@ while cv2.waitKey(1)<0:
         print(f'Age: {age[1:-1]} years')
 
         cv2.putText(resultImg, f'{gender}, {age}', (faceBox[0], faceBox[1]-10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,255), 2, cv2.LINE_AA)
-        # cv2.imshow("Detecting age and gender", resultImg)
+        cv2.imshow("Detecting age and gender", resultImg)
 
-        img = Image.fromarray(resultImg)
-        img.save(os.path.join( upload_dest, "check.jpg"))
+        # img = Image.fromarray(resultImg)
+        # img.save(os.path.join( upload_dest, "check.jpg"))
 
