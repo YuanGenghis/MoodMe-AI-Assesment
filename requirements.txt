@@ -1,8 +1,6 @@
 Flask
 Pillow
-opencv-python-headless==4.5.5.62
+opencv-python==4.5.5.62
 gunicorn
 Werkzeug
 numpy
-pkg-config
-libgtk2.0-dev
