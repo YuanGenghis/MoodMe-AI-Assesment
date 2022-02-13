@@ -8,6 +8,7 @@ from werkzeug.utils import secure_filename
 from config import *
 from PIL import Image
 from subprocess import Popen, PIPE
+from os.path import exists
 
 
 app=Flask(__name__, 
@@ -106,11 +107,12 @@ def checkGender(path):
 
     video=cv2.VideoCapture(path)
     padding=20
-    while cv2.waitKey(1)<0:
+    # while cv2.waitKey(1)<0:
+    while True:
         hasFrame,frame=video.read()
-        if not hasFrame:
-            cv2.waitKey()
-            break
+        # if not hasFrame:
+        #     cv2.waitKey()
+        #     break
 
         resultImg,faceBoxes=highlightFace(faceNet,frame)
         if not faceBoxes:
@@ -137,6 +139,8 @@ def checkGender(path):
 
         img = Image.fromarray(resultImg)
         img.save(os.path.join( upload_dest, "check.jpg"))
+
+        if exists('uploads_folder' + '/' + 'check.jpg'): break
 
 
 if __name__ == "__main__":
