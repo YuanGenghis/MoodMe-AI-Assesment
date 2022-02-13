@@ -1,7 +1,7 @@
 # MoodMe-AI-Assesment
 # Web deploy Link: 
 https://moodme-ai-assesment.herokuapp.com/upload \
-If not working, please follow next steps\
+If not working, please follow next steps
 ## Installation
 Click on Code and choose download zip file. Unzip file to any folder you want.
 
